@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename= style.css) }}">
+</head>
+<body>
+    <main class="main-container">
+        <div class="container">
+            <form action="/" method="post">
+                <h1 class="h1">Register</h1>
+
+                <div>
+                <label class="input-label" for="uername">usename:</label>
+                </div>
+                    <input class="input" type="text" name="usename" placeholder="Usename" required>
+
+
+                <div>
+                    <label class="input-label" for="uername">Email:</label>
+                </div>
+                <input class="input" type="text" name="email" placeholder="Email" required >
+
+
+                <div>
+                    <label class="input-label" for="uername">Password:</label>
+                </div>
+                <input class="input" type="text" name="Password" placeholder="Password" required>
+
+
+                <div>
+                    <label class="input-label" for="Verify">Verify Password:</label>
+                </div>
+                <input class="input" type="text" name="Verify-password" placeholder="Verify Password" required>
+                
+
+                <div><button class="btn">Register</button></div>
+
+                <p class="last" style="font-style: italic;">Already register? <span>Click </span><span style="color: rgb(58, 73, 210);">here</span> to login</p>
+
+            </form>
+        </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message1 in messages %}
+                        <div class="flash">{{ message1 }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+    </main>
+</body>
+</html>
