@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(198, 191, 191);
+        }
+
+        input{
+            display: flex;
+            gap: 30px;
+            width: 250px;
+            height: 35px;
+            border-radius: 7px;
+        }
+        button{
+            width: 250px;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/home" method="post">
+        name:<input type="text" name="name" placeholder="Enter Name" required> <br>
+        Email<input type="text" name="email" placeholder="Enter email" required> <br>
+        password:<input type="text" name="password" placeholder="Enter password" required><br>
+        <button>Submit</button>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p>{{ category }}: {{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </form>
+</body>
+</html>
